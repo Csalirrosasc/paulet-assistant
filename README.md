@@ -1,12 +1,79 @@
-# React + Vite
+# Paulet Assistant Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Este es el frontend de **Paulet Assistant**, una aplicación de chatbot construida con [React](https://react.dev/) y [Vite](https://vitejs.dev/).
 
-Currently, two official plugins are available:
+## Características
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Interfaz moderna y responsiva para chatear con el asistente Paulet.
+- Comunicación con backend vía API REST (`/chat`).
+- Componentes reutilizables y estilos personalizados.
+- ESLint configurado para mantener la calidad del código.
 
-## Expanding the ESLint configuration
+## Estructura del proyecto
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+```
+paulet-assistant/
+├── public/
+├── src/
+│   ├── assets/
+│   ├── components/
+│   │   ├── Chat.jsx
+│   │   ├── ChatBot.jsx
+│   │   ├── ChatHeader.jsx
+│   │   ├── ChatInput.jsx
+│   │   ├── ChatMessage.jsx
+│   │   ├── ChatMessages.jsx
+│   │   └── ...
+│   ├── App.jsx
+│   ├── App.css
+│   ├── index.css
+│   └── main.jsx
+├── .gitignore
+├── package.json
+├── vite.config.js
+└── README.md
+```
+
+## Instalación
+
+1. **Clona el repositorio:**
+   ```sh
+   git clone https://github.com/tu-usuario/paulet-assistant-frontend.git
+   cd paulet-assistant-frontend/paulet-assistant
+   ```
+
+2. **Instala las dependencias:**
+   ```sh
+   npm install
+   ```
+
+3. **Inicia el servidor de desarrollo:**
+   ```sh
+   npm run dev
+   ```
+
+4. Abre [http://localhost:5173](http://localhost:5173) en tu navegador.
+
+## Scripts disponibles
+
+- `npm run dev` — Inicia el servidor de desarrollo.
+- `npm run build` — Genera la versión de producción.
+- `npm run preview` — Previsualiza la build de producción.
+- `npm run lint` — Ejecuta ESLint para revisar el código.
+
+## Configuración de ESLint
+
+El proyecto incluye una configuración de ESLint para mantener buenas prácticas y calidad en el código. Puedes modificar las reglas en [`eslint.config.js`](eslint.config.js).
+
+## Notas
+
+- El frontend espera que el backend esté disponible en `http://127.0.0.1:8000/chat`.
+- Asegúrate de tener el backend corriendo para que el chat funcione correctamente.
+
+## Licencia
+
+Aún no se ha configurado la licencia.
+
+---
+
+Hecho con ❤️ usando React y Vite.
