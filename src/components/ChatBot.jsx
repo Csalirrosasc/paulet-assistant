@@ -1,6 +1,8 @@
-// src/components/ChatBot.jsx
 import React, { useState } from 'react';
 import './ChatBot.css';
+import paulet_avatar from '../assets/paulet-avatar.png';
+
+const avatar = paulet_avatar;
 
 const ChatBot = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -17,23 +19,23 @@ const ChatBot = () => {
     setInput('');
 
     try {
-      const res = await fetch('http://127.0.0.1:8000/chat', {
+      const res = await fetch('http://127.0.0.1:8000/paulet/chat', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ message: input }),
       });
 
       const data = await res.json();
-      const botMessage = { from: 'bot', text: data.response };
+      const botMessage = { from: 'bot', text: data.respuesta };
       setMessages((prev) => [...prev, botMessage]);
-    } catch (error) {
+    } catch {
       setMessages((prev) => [...prev, { from: 'bot', text: 'Hubo un error. Intenta más tarde.' }]);
     }
   };
 
   return (
     <div className="chatbot-container">
-      <button className="chat-toggle" onClick={toggleChat}>💬</button>
+      <button className="chat-toggle" onClick={toggleChat}><img className='avatar' src={avatar} alt="Avatar" /></button>
 
       {isOpen && (
         <div className="chat-window">
