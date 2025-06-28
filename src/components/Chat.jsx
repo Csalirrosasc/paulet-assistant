@@ -8,7 +8,7 @@ function Chat() {
   const sendMessage = async () => {
     if (!input.trim()) return;
 
-    const userMessage = { sender: 'Tú', text: input };
+    const userMessage = { sender: 'Tu', text: input };
     setMessages(prev => [...prev, userMessage]);
     setInput('');
 
@@ -20,7 +20,7 @@ function Chat() {
       });
       const data = await response.json();
 
-      const botMessage = { sender: 'Paulet 🤖', text: data.response };
+      const botMessage = { sender: 'Paulet ', text: data.response };
       setMessages(prev => [...prev, botMessage]);
     } catch (error) {
       setMessages(prev => [...prev, { sender: 'Error', text: 'No se pudo conectar con el backend.' }]);
@@ -35,8 +35,9 @@ function Chat() {
     <div className="chat-container">
       <div className="chat-box">
         {messages.map((msg, i) => (
-          <div key={i} className={`message ${msg.sender === 'Tú' ? 'user' : 'bot'}`}>
-            <strong>{msg.sender}: </strong>{msg.text}
+          <div key={i} className={`message ${msg.sender === 'Tu' ? 'user' : 'bot'}`}>
+            <strong>{msg.sender}:</strong>
+            <span> {msg.text}</span>
           </div>
         ))}
       </div>

@@ -6,7 +6,7 @@ const avatar = paulet_avatar;
 
 const ChatBot = ({ userData }) => {
   const [input, setInput] = useState('');
-  const [messages, setMessages] = useState([{ from: 'bot', text: `¡Hola ${userData?.nombre || 'usuario'}! ¿En qué puedo ayudarte hoy?` }]);
+  const [messages, setMessages] = useState([{ from: 'bot', text: `¡Hola ${userData?.nombre || ', bienvenido'}! ¿En qué puedo ayudarte hoy?` }]);
 
   const handleSend = async () => {
     if (!input.trim()) return;
