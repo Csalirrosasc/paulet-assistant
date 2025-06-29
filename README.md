@@ -6,6 +6,7 @@ Este es el frontend de **Paulet Assistant**, una aplicación de chatbot construi
 
 - Interfaz moderna y responsiva para chatear con el asistente Paulet.
 - Comunicación con backend vía API REST (`/chat`).
+- Manejo de inicio de sesión.
 - Componentes reutilizables y estilos personalizados.
 - ESLint configurado para mantener la calidad del código.
 
