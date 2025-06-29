@@ -48,7 +48,7 @@ const LoginPage = ({ onLoginSuccess }) => {
       <div className="login-card">
         <div className="login-header">
           <img src={paulet_avatar} alt="Paulet Avatar" className="login-avatar" />
-          <h1>Paulet Assistant</h1>
+          <h1>Asistente PAULET</h1>
         </div>
         
         {error && <div className="error-message">{error}</div>}

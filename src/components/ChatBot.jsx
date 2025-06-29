@@ -45,7 +45,7 @@ const ChatBot = ({ userData }) => {
       <div className="chat-window">
         <div className="chat-header">
           <img className='avatar-header' src={avatar} alt="Avatar" />
-          <span>Asistente Paulet</span>
+          <span>Asistente PAULET</span>
           {userData?.nombre && <span className="user-badge">Bienvenido, {userData.nombre}</span>}
         </div>
         <div className="chat-body" ref={chatBodyRef}>
