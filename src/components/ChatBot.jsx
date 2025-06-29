@@ -8,6 +8,7 @@ const ChatBot = ({ userData }) => {
   const [input, setInput] = useState('');
   const [messages, setMessages] = useState([{ from: 'bot', text: `¡Hola ${userData?.nombre || ', bienvenido'}! ¿En qué puedo ayudarte hoy?` }]);
   const chatBodyRef = useRef(null);
+  const [isTyping, setIsTyping] = useState(false);
 
   useEffect(() => {
     if (chatBodyRef.current) {
@@ -21,7 +22,7 @@ const ChatBot = ({ userData }) => {
     const userMessage = { from: 'user', text: input };
     setMessages((prev) => [...prev, userMessage]);
     setInput('');
-
+    setIsTyping(true);
     try {
       const res = await fetch('https://paulet-assistant.fly.dev/paulet/chat', {
         method: 'POST',
@@ -37,7 +38,7 @@ const ChatBot = ({ userData }) => {
       setMessages((prev) => [...prev, botMessage]);
     } catch {
       setMessages((prev) => [...prev, { from: 'bot', text: 'Hubo un error. Intenta más tarde.' }]);
-    }
+    } finally { setIsTyping(false); };
   };
 
   return (
@@ -52,6 +53,13 @@ const ChatBot = ({ userData }) => {
           {messages.map((msg, i) => (
             <div key={i} className={`message ${msg.from}`}>{msg.text}</div>
           ))}
+          {isTyping && (
+            <div className="message bot typing">
+              Escribiendo<span className="dots">
+                <span>.</span><span>.</span><span>.</span>
+              </span>
+            </div>
+          )}
         </div>
         <div className="chat-footer">
           <input
