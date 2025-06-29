@@ -16,7 +16,7 @@ const ChatBot = ({ userData }) => {
     setInput('');
 
     try {
-      const res = await fetch('http://127.0.0.1:8000/paulet/chat', {
+      const res = await fetch('https://paulet-assistant.fly.dev/paulet/chat', {
         method: 'POST',
         headers: { 
           'Content-Type': 'application/json',

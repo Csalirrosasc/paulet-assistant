@@ -20,7 +20,7 @@ const LoginPage = ({ onLoginSuccess }) => {
     setError('');
 
     try {
-      const response = await fetch('http://127.0.0.1:8000/paulet/login', {
+      const response = await fetch('https://paulet-assistant.fly.dev/paulet/login', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
